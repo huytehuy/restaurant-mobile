@@ -1,0 +1,24 @@
+{
+  "name": "cafe-tycoon",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Café Tycoon — PWA tycoon game",
+  "scripts": {
+    "dev": "pnpm --filter @cafe-tycoon/web dev",
+    "dev:worker": "pnpm --filter @cafe-tycoon/worker dev",
+    "build": "pnpm --filter @cafe-tycoon/shared build && pnpm --filter @cafe-tycoon/web build",
+    "build:worker": "pnpm --filter @cafe-tycoon/worker build",
+    "lint": "biome check .",
+    "format": "biome format --write .",
+    "test": "pnpm -r test"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=9"
+  },
+  "packageManager": "pnpm@11.5.0"
+}

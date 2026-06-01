@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-area-top: env(safe-area-inset-top, 0px);
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+body {
+  font-family: 'Be Vietnam Pro', system-ui, sans-serif;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  text-rendering: optimizeLegibility;
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 font-semibold transition-colors active:scale-95;
+  }
+  .btn-primary {
+    @apply btn bg-brand-700 text-white hover:bg-brand-600 disabled:opacity-50;
+  }
+  .btn-secondary {
+    @apply btn bg-brand-100 text-brand-800 hover:bg-brand-200 disabled:opacity-50;
+  }
+  .btn-ghost {
+    @apply btn text-brand-700 hover:bg-brand-100;
+  }
+  .card {
+    @apply rounded-2xl bg-white shadow-panel p-4;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full bg-brand-100 px-3 py-1 text-sm font-medium text-brand-800 shadow-chip;
+  }
+  .panel-scroll {
+    @apply overflow-y-auto overscroll-contain;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@layer utilities {
+  .safe-bottom { padding-bottom: var(--safe-area-bottom); }
+  .safe-top    { padding-top: var(--safe-area-top); }
+}

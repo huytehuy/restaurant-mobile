@@ -1,0 +1,82 @@
+// Tunable game constants. Adjust these to balance pacing/economy.
+
+export const GAME_CONFIG = {
+  // Time
+  REAL_MS_PER_INGAME_MINUTE: 1000,
+  OPENING_HOUR: 7,
+  CLOSING_HOUR: 22,
+  MAX_OFFLINE_MINUTES: 480,
+
+  // Economy
+  STARTING_CASH: 5_000_000,
+  STARTING_DEBT: 0,
+  DAILY_RENT_BASE: 500_000,
+  INGREDIENT_RESTOCK_COST_MULTIPLIER: 1.2,
+
+  // Staff
+  FATIGUE_PER_30_MIN: 1,
+  FATIGUE_SLOW_THRESHOLD: 80,
+  FATIGUE_REFUSE_THRESHOLD: 95,
+  STAFF_SPEED_MULTIPLIER: {
+    1: 1.0, 2: 1.05, 3: 1.1, 4: 1.15, 5: 1.2,
+    6: 1.3, 7: 1.4, 8: 1.5, 9: 1.65, 10: 1.8,
+  } as Record<number, number>,
+
+  // Customer
+  PATIENCE_DRAIN_PER_MINUTE: 5,
+  PATIENCE_DRAIN_WHEN_WAITING_ORDER: 8,
+  MIN_SATISFACTION_FOR_GOOD_REVIEW: 60,
+  CUSTOMER_LEAVE_PATIENCE_THRESHOLD: 0,
+
+  // Reputation
+  REPUTATION_DECAY_PER_DAY: 0.5,
+  REPUTATION_GAIN_PER_5STAR: 2,
+  REPUTATION_LOSS_PER_1STAR: 3,
+  INITIAL_REPUTATION: 50,
+
+  // Autosave
+  AUTOSAVE_INTERVAL_MS: 30_000,
+  CLOUD_SYNC_INTERVAL_MS: 300_000,
+
+  // Floor canvas defaults
+  FLOOR_WIDTH: 1280,
+  FLOOR_HEIGHT: 800,
+  INITIAL_SEATING_CAPACITY: 8,
+  INITIAL_TABLE_COUNT: 4,
+
+  // Scene geometry (used by pathfinding)
+  WALL_THICKNESS: 14,
+  COUNTER_HEIGHT: 110,
+  ENTRANCE_X: 60,
+  ENTRANCE_Y: 720,
+  QUEUE_START_X: 130,
+  QUEUE_Y: 720,
+  QUEUE_SPACING: 38,
+  BARISTA_STATION_X: 320,
+  BARISTA_STATION_Y: 130,
+  CASHIER_STATION_X: 980,
+  CASHIER_STATION_Y: 130,
+  CHARACTER_WALK_SPEED: 110, // px per real second
+  CHARACTER_BUSY_RADIUS: 8,
+
+  // Brewing
+  BREWING_STEP_TIME_MS: 1500,
+  BREWING_PERFECT_WINDOW_MS: 320,
+  BREWING_GOOD_WINDOW_MS: 700,
+  BREWING_AUTO_SCORE: 55, // when player skips mini-game
+
+  // Customer spawn
+  SPAWN_BASE_RATE_DIVISOR: 20, // reputation / 20
+  SPAWN_CAPACITY_DIVISOR: 10,  // capacity / 10
+  PEAK_HOURS: [
+    { from: 7, to: 9, multiplier: 1.8 },
+    { from: 12, to: 13, multiplier: 1.6 },
+    { from: 17, to: 19, multiplier: 1.7 },
+  ],
+
+  // Save limits
+  MAX_CLOUD_SAVE_SLOTS_PER_USER: 3,
+  MAX_SAVE_BLOB_BYTES: 5 * 1024 * 1024,
+} as const
+
+export type GameConfig = typeof GAME_CONFIG

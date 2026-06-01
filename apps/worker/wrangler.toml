@@ -1,0 +1,22 @@
+name = "cafe-tycoon-api"
+main = "src/index.ts"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "cafe-tycoon-db"
+database_id = "YOUR_D1_DATABASE_ID"   # replace with `wrangler d1 create cafe-tycoon-db` output
+
+[[kv_namespaces]]
+binding = "KV"
+id = "YOUR_KV_NAMESPACE_ID"           # replace with `wrangler kv namespace create cafe-tycoon-kv` output
+
+[vars]
+ALLOWED_ORIGIN = "https://cafe-tycoon.pages.dev"
+
+# JWT_SECRET is set via `wrangler secret put JWT_SECRET` — do NOT commit it.
+
+[env.dev]
+[env.dev.vars]
+ALLOWED_ORIGIN = "http://localhost:5173"
