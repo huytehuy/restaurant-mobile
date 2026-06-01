@@ -10,9 +10,14 @@ const app = new Hono<{ Bindings: Env; Variables: AuthedVariables }>()
 
 app.use('*', logger())
 app.use('*', async (c, next) => {
-  const origin = c.env.ALLOWED_ORIGIN
+  const raw = c.env.ALLOWED_ORIGIN ?? ''
+  const allowed = raw.split(',').map((s) => s.trim()).filter(Boolean)
   return cors({
-    origin: origin,
+    origin: (origin) => {
+      if (allowed.includes('*')) return origin || '*'
+      if (origin && allowed.includes(origin)) return origin
+      return allowed[0] ?? ''
+    },
     allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowHeaders: ['authorization', 'content-type'],
     credentials: false,

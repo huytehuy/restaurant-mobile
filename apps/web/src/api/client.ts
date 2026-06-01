@@ -1,4 +1,5 @@
-const DEFAULT_BASE = import.meta.env.VITE_API_BASE_URL ?? 'https://api.cafe-tycoon.workers.dev'
+const DEFAULT_BASE =
+  import.meta.env.VITE_API_BASE_URL ?? 'https://restaurant.huytehuy.id.vn'
 
 const TOKEN_KEY = 'cafe-tycoon.token'
 

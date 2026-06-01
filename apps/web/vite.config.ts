@@ -34,7 +34,7 @@ export default defineConfig({
         globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
         runtimeCaching: [
           {
-            urlPattern: /^https:\/\/api\.cafe-tycoon\.workers\.dev\/leaderboard/,
+            urlPattern: /^https:\/\/restaurant\.huytehuy\.id\.vn\/leaderboard/,
             handler: 'NetworkFirst',
             options: {
               cacheName: 'api-leaderboard',

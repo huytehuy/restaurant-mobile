@@ -6,14 +6,15 @@ compatibility_flags = ["nodejs_compat"]
 [[d1_databases]]
 binding = "DB"
 database_name = "cafe-tycoon-db"
-database_id = "YOUR_D1_DATABASE_ID"   # replace with `wrangler d1 create cafe-tycoon-db` output
+database_id = "4f2b6083-b6da-4046-8f8f-b54af8294047"
 
 [[kv_namespaces]]
 binding = "KV"
-id = "YOUR_KV_NAMESPACE_ID"           # replace with `wrangler kv namespace create cafe-tycoon-kv` output
+id = "aaf9dd750e7d4befbbad58bdee8b68d7"
 
 [vars]
-ALLOWED_ORIGIN = "https://cafe-tycoon.pages.dev"
+# Comma-separated list of allowed CORS origins.
+ALLOWED_ORIGIN = "https://restaurant.huytehuy.id.vn,https://cafe-tycoon.pages.dev,http://localhost:5173"
 
 # JWT_SECRET is set via `wrangler secret put JWT_SECRET` — do NOT commit it.
 
